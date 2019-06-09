@@ -3,6 +3,8 @@ using IRunes.Data;
 using IRunes.Models;
 using SIS.HTTP.Requests.Contracts;
 using SIS.HTTP.Responses.Contracts;
+using SIS.MvcFramework;
+using SIS.MvcFramework.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +12,9 @@ using System.Text;
 
 namespace IRunes.App.Controllers
 {
-    public class AlbumsController : HomeController
+    public class AlbumsController : Controller
     {
+
         public IHttpResponse All(IHttpRequest httpRequest)
         {
             if (!this.IsLogedIn(httpRequest))
@@ -48,6 +51,7 @@ namespace IRunes.App.Controllers
             return this.View();
         }
 
+        [HttpPost(ActionName = "Create")]
         public IHttpResponse CreateConfirm(IHttpRequest httpRequest)
         {
             if (!this.IsLogedIn(httpRequest))

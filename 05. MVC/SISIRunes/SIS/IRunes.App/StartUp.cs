@@ -13,14 +13,14 @@ namespace IRunes.App
 {
     public class StartUp : IMvcApplication
     {
-        public void Configure(ServerRoutingTable serverRoutingTable)
+        public void Configure(IServerRoutingTable serverRoutingTable)
         {
             using (var context = new RunesDbContext())
             {
                 context.Database.EnsureCreated();
             }
 
-
+            /*
             #region Home Routes
             serverRoutingTable.Add(HttpRequestMethod.Get, "/", request => new RedirectResult("/Home/Index"));
             serverRoutingTable.Add(HttpRequestMethod.Get, "/Home/Index", request => new HomeController().Index(request));
@@ -48,7 +48,7 @@ namespace IRunes.App
             #endregion
 
             serverRoutingTable.Add(HttpRequestMethod.Get, "/Info/About", request => new InfoController().About(request));
-
+            */
         }
 
         public void ConfigureServices()
